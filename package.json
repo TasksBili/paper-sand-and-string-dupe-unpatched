@@ -1,7 +1,7 @@
 {
-  "name": "paper-sand-dupe-unpatched",
+  "name": "paper-sand-and-string-dupe-unpatched",
   "version": "1.0.0",
-  "description": "Unpatch the sand duplication glitch from PaperMC",
+  "description": "Unpatch the sand and string duplication glitch from PaperMC",
   "main": "index.js",
   "scripts": {
     "start": "node ./main.js"
@@ -13,6 +13,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nats-ji/paper-sand-dupe-unpatched.git"
+    "url": "https://github.com/OmsinKrissada/paper-sand-and-string-dupe-unpatched.git"
   }
 }
