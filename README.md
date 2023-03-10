@@ -18,7 +18,7 @@
 
 
 ## License
-This node.js app and the released jars are all licensed under GLPv3.
+This node.js app and the released jars are all licensed under GPLv3.
 
 [license]: https://img.shields.io/github/license/Nats-ji/paper-sand-dupe-unpatched?style=flat-square
 [forks]: https://img.shields.io/github/forks/OmsinKrissada/paper-sand-and-string-dupe-unpatched?style=flat-square
