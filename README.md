@@ -7,8 +7,8 @@
 
 # PaperMC Sand & String Duplication Glitch Unpatched (forked)
 
-## This fork unpatches string dupe that relies on state inconsistency of tripwire hook.
-## For actual README and instructions, please visit the [original repository](https://github.com/Nats-ji/paper-sand-dupe-unpatched)
+### This fork unpatches string dupe that relies on state inconsistency of tripwire hook.
+### For actual README and instructions, please visit the [original repository](https://github.com/Nats-ji/paper-sand-dupe-unpatched)
 
 ## Download
 
