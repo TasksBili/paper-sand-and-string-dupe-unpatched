@@ -80,35 +80,3 @@ jobs:
           tag: ${{ needs.build.outputs.version }}
           prerelease: ${{ needs.build.outputs.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  release-3dm:
-    runs-on: ubuntu-latest
-    needs: build
-    if: ${{ needs.build.outputs.need_update == 'true' && github.repository_owner == 'Nats-ji' }}
-    steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: package
-
-      - name: Update into on 3dm
-        uses: GlossMod/ActionUpdateMod@v1
-        id: update_3dm
-        with:
-          appid: ${{ secrets.APPID_3DM }}
-          appkey: ${{ secrets.APPKEY_3DM }}
-          id: ${{ secrets.MODID_3DM }}
-          version: ${{ needs.build.outputs.version }}
-          content: README_zh.md
-          file: ${{ needs.build.outputs.filename }}
-          zip-only: true
-
-      - name: Upload file to 3dm
-        uses: Nats-ji/Action3DMLargeFileUpload@v1
-        with:
-          username: ${{ secrets.USERNAME_3DM }}
-          password: ${{ secrets.PASSWORD_3DM }}
-          cookies: ${{ secrets.COOKIES_3DM }}
-          id: ${{ secrets.MODID_3DM }}
-          file: ${{ steps.update_3dm.outputs.file }}
-          filename: paper-sand-dupe-unpatched-${{ needs.build.outputs.version }}
