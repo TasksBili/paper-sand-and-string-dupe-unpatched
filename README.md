@@ -5,9 +5,10 @@
 ![GitHub (Pre-)Release Date][release-date]
 ![downloads][total-downloads]
 
-# PaperMC Sand Duplication Glitch Unpatched
+# PaperMC Sand & String Duplication Glitch Unpatched
 
-[中文](https://github.com/Nats-ji/paper-sand-dupe-unpatched/blob/master/README_zh.md)
+## Message from fork
+This fork unpatches string dupe that relies on state inconsistency of tripwire hook.
 
 ![banner](https://repository-images.githubusercontent.com/439708131/2399b3e8-c386-427d-9370-cf7a4c847b8d)
 

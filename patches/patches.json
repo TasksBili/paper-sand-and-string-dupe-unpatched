@@ -1,6 +1,8 @@
 [
   {
-    "versions": ["latest"],
+    "versions": [
+      "latest"
+    ],
     "patches": [
       {
         "patch_name": "fix_sand_duping_patch",
@@ -42,6 +44,41 @@
               {
                 "from": "\n            // Paper start - move all of this logic into portal tick\n            entity.portalWorld = ((ServerLevel)world);\n            entity.portalBlock = pos.immutable();\n            // Paper end - move all of this logic into portal tick",
                 "to": "\n            // CraftBukkit start - Entity in portal\n            EntityPortalEnterEvent event = new EntityPortalEnterEvent(entity.getBukkitEntity(), new org.bukkit.Location(world.getWorld(), pos.getX(), pos.getY(), pos.getZ()));\n            world.getCraftServer().getPluginManager().callEvent(event);\n\n            if (entity instanceof ServerPlayer) {\n                ((ServerPlayer) entity).changeDimension(worldserver, PlayerTeleportEvent.TeleportCause.END_PORTAL);\n                return;\n            }\n            // CraftBukkit end\n            entity.changeDimension(worldserver);"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "patch_name": "fix_tripwire_state_inconsistency",
+        "files": [
+          {
+            "file_name": "src/main/java/net/minecraft/world/level/block/TripWireBlock.java",
+            "edits": [
+              {
+                "from": "\n            this.updateSource(world, pos, (BlockState) state.setValue(TripWireBlock.POWERED, true), true); // Paper - fix state inconsistency",
+                "to": "\n            this.updateSource(world, pos, (BlockState) state.setValue(TripWireBlock.POWERED, true));"
+              },
+              {
+                "from": "\n        // Paper start - fix state inconsistency\n        this.updateSource(world, pos, state, false);\n    }\n    private void updateSource(Level world, BlockPos pos, BlockState state, boolean beingRemoved) {\n        // Paper end",
+                "to": ""
+              },
+              {
+                "from": "\n                            this.hook.calculateState(world, blockposition1, iblockdata1, false, true, k, state, beingRemoved); // Paper - fix state inconsistency",
+                "to": "\n                            this.hook.calculateState(world, blockposition1, iblockdata1, false, true, k, state);"
+              }
+            ]
+          },
+          {
+            "file_name": "src/main/java/net/minecraft/world/level/block/TripWireHookBlock.java",
+            "edits": [
+              {
+                "from": "\n        // Paper start - fix tripwire inconsistency\n        this.calculateState(world, pos, state, beingRemoved, flag1, i, iblockdata1, false);\n    }\n\n    public void calculateState(Level world, BlockPos pos, BlockState state, boolean beingRemoved, boolean flag1, int i, @Nullable BlockState iblockdata1, boolean tripWireBeingRemoved) {\n        // Paper end",
+                "to": ""
+              },
+              {
+                "from": "\n                if (k != i || !tripWireBeingRemoved || !flag6) // Paper - don't update the tripwire again if being removed and not disarmed",
+                "to": ""
               }
             ]
           }
