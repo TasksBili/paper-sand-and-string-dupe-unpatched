@@ -14,7 +14,7 @@
 
 ### Latest Version
 
-[![GitHub release (latest by date including pre-releases)][latest-release-big]](https://github.com/OmsinKrissada/paper-sand-and-string-dupe-unpatched/releases)
+[![GitHub release (latest by date including pre-releases)][latest-release-big]](https://github.com/TasksBili/paper-sand-and-string-dupe-unpatched/releases)
 
 
 ## License
